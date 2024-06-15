@@ -236,14 +236,17 @@ class MAE(nn.Module):
         # get the patches to be masked for the final reconstruction loss
 
         masked_patches = patches[batch_range, masked_indices]
+        masked_tokens = tokens[batch_range, masked_indices]
 
         # attend with vision transformer
 
         encoded_tokens = self.encoder.transformer(tokens)
+        masked_encoded_tokens = self.encoder.transformer(masked_tokens)
 
         # project encoder to decoder dimensions, if they are not equal - the paper says you can get away with a smaller dimension for decoder
 
         decoder_tokens = self.enc_to_dec(encoded_tokens)
+        masked_decoder_tokens = self.enc_to_dec(masked_encoded_tokens)
 
         # reapply decoder position embedding to unmasked tokens
 
@@ -267,8 +270,16 @@ class MAE(nn.Module):
         pred_pixel_values = self.to_pixels(mask_tokens)
 
         # calculate reconstruction loss
+        #recon_loss = F.mse_loss(pred_pixel_values, masked_patches)
 
-        recon_loss = F.mse_loss(pred_pixel_values, masked_patches)
+        #compute the crossentropy for every element of mask_tokens and masked_decoder_tokens
+        recon_loss = 0
+        for i in range(mask_tokens.shape[0]):
+            recon_loss += F.mse_loss(mask_tokens[i], masked_decoder_tokens[i])
+
+
+        recon_loss =  recon_loss / mask_tokens.shape[0]
+
         return recon_loss, pred_pixel_values, masked_patches
 
 
