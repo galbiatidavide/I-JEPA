@@ -67,6 +67,25 @@ Datasets used:
 
 ---
 
+
+---
+
+## 🧠 Architecture Diagrams
+
+<table>
+  <tr>
+    <td align="center">
+      <strong>Vision Transformer Architecture</strong><br>
+      <img src="https://raw.githubusercontent.com/galbiatidavide/I-JEPA/main/jepa_images/vit_architecture.png" width="400">
+    </td>
+    <td align="center">
+      <strong>Masked AutoEncoder Flow</strong><br>
+      <img src="https://raw.githubusercontent.com/galbiatidavide/I-JEPA/main/jepa_images/mae_architecture.png" width="400">
+    </td>
+  </tr>
+</table>
+
+
 ## 🧩 MAE Results
 
 <table>
