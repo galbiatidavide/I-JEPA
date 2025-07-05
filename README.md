@@ -1,7 +1,6 @@
 # 🧠 I-JEPA: Joint Embedding Predictive Architecture for Image Reconstruction
 
 Scientific Computing Tools for Advanced Mathematical Modelling  
-**Authors**: Giovanni Messa, Francesco Montagnani, Davide Galbiati  
 **Instructor**: Prof. Stefano Pagani  
 **Institution**: Politecnico di Milano  
 **Academic Year**: 2023–2024  
