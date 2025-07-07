@@ -17,8 +17,6 @@ Our architecture is inspired by **Meta AI’s I-JEPA**, and is trained and evalu
 
 ## 🧠 Model Architecture
 
-Implemented from scratch using PyTorch:
-
 ### 🔷 Vision Transformer (ViT)
 
 - Patch embedding via `Rearrange` (einops)  
